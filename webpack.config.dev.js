@@ -9,9 +9,7 @@ const updatedConfig = Object.assign({}, baseConfig, {
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new RunScriptWebpackPlugin({
-      name: 'main.bundle.js',
-      signal: true,
-      cwd: path.resolve(__dirname, 'dist'),
+      name: 'index.js',
     }),
   ],
   externals: [
@@ -23,7 +21,8 @@ const updatedConfig = Object.assign({}, baseConfig, {
     aggregateTimeout: 1000,
     // poll: 1000,
     ignored: '**/node_modules',
-  }
+  },
+  mode: 'development',
 });
 
 module.exports = updatedConfig;
